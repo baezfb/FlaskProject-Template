@@ -2,3 +2,4 @@ build==1.0.3
 twine==4.0.2
 black==23.11.0
 watchdog==3.0.0
+click-shell==2.1
