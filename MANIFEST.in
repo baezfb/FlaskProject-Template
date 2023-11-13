@@ -2,3 +2,9 @@ graft openwebpos
 include pyproject.toml
 include setup.py
 global-exclude *.py[cod] __pycache__ *.so *.dylib
+# UI Static Files
+recursive-include openwebpos *.html
+recursive-include openwebpos *.min.css
+recursive-include openwebpos *.min.js
+recursive-include openwebpos *.woff2
+recursive-include openwebpos *.json
