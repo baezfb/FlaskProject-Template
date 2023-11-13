@@ -1,6 +1,14 @@
 from .BaseView import BaseView
 
 
+class UrlNotSetException(Exception):
+    """
+    Custom exception for when a URL is not set.
+    """
+
+    pass
+
+
 class RedirectView(BaseView):
     url = None
 
@@ -9,8 +17,7 @@ class RedirectView(BaseView):
         Gets the URL, if this method is not overwritten, then a url variable must be set.
         """
         if self.url is None:
-            # TODO: Raised adn error message if url is not set.
-            pass
+            raise UrlNotSetException("URL is not set.")
         return self.url
 
     def get(self, *args, **kwargs):
