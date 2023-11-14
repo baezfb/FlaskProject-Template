@@ -1,4 +1,5 @@
 import os
+import secrets
 
 from click_shell import shell
 
@@ -53,6 +54,12 @@ def addblueprint():
     )
     with open("openwebpos/blueprints/__init__.py", "a") as f:
         f.write(f"from .{blueprint_name} import {blueprint_name}_bp\n")
+
+
+@openwebpos.command()
+def gensecret():
+    """Generate a secret key"""
+    print(secrets.token_hex())
 
 
 if __name__ == "__main__":
