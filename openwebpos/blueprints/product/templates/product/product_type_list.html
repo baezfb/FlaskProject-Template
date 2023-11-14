@@ -22,8 +22,8 @@
                                 <form hx-put="" class="row">
                                     {{ form.csrf_token }}
                                     <input type="hidden" name="id" value="{{ object.id }}">
-                                    {{ string_field(form.name(value=object.name|title, placeholder="Name")) }}
-                                    {{ string_field(form.short_name(value=object.short_name|upper)) }}
+                                    {{ string_field(form.name(value=object.name|title), "Name") }}
+                                    {{ string_field(form.short_name(value=object.short_name|upper), "Short Name") }}
                                     {{ submit_field(form.submit) }}
                                 </form>
                             {% endcall %}
