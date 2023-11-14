@@ -1,0 +1,11 @@
+{% macro btn(route, text, style="btn") %}
+
+    <a href="{{ route }}" class="{{ style }}">
+        {{ text }}
+    </a>
+
+{% endmacro %}
+
+{% macro modal_btn(target, text, style="btn") %}
+    <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">{{ text }}</button>
+{% endmacro %}

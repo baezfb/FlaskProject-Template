@@ -1,0 +1,12 @@
+{% macro modal(id, title=None, style="bottom-sheet") %}
+
+    <div id="{{ id }}Modal" class="modal {{ style if style }}">
+        <div class="modal-content">
+            {% if title %}
+                <h4 class="center-align">{{ title }}</h4>
+            {% endif %}
+            {{ caller() }}
+        </div>
+    </div>
+
+{% endmacro %}
