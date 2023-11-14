@@ -3,6 +3,7 @@ import os
 from flask import Flask, current_app
 
 from openwebpos.app import config
+from openwebpos.blueprints import blueprints
 
 
 def create_app(config_filename=None, config_path=None):
@@ -28,6 +29,10 @@ def create_app(config_filename=None, config_path=None):
         pass
 
     load_extensions(app)
+
+    # Register blueprints
+    for blueprint in blueprints:
+        app.register_blueprint(blueprint)
 
     @app.route("/")
     def index():
