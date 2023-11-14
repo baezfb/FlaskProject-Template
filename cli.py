@@ -24,7 +24,7 @@ def addblueprint():
     # Create __init__.py file
     with open(os.path.join(blueprint_path, blueprint_name, "__init__.py"), "w") as f:
         f.write(
-            f"from flask import Blueprint\n\n{blueprint_name}_bp = Blueprint('{blueprint_name}', __name__, template_folder='templates')\n"
+            f"from flask import Blueprint\n\n{blueprint_name}_bp = Blueprint('{blueprint_name}', __name__, template_folder='templates', url_prefix='/{blueprint_name}/')\n"
         )
     # Add models folder to blueprint
     os.makedirs(os.path.join(blueprint_path, blueprint_name, "models"))
