@@ -257,3 +257,4 @@ cython_debug/
 instance/*
 !instance/.gitignore
 
+/openwebpos.db
