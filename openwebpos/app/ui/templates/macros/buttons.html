@@ -6,8 +6,10 @@
 
 {% endmacro %}
 
-{% macro modal_btn(target, text, style="btn") %}
-    <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">{{ text }}</button>
+{% macro modal_btn(target, icon, style="btn") %}
+    <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">
+        <i class="material-icons">{{ icon }}</i>
+    </button>
 {% endmacro %}
 
 {% macro fixed_btn(target, icon="add", modal=True, pulse=False) %}

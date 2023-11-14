@@ -1,0 +1,12 @@
+{% macro string_field(field, style="s12") %}
+    <div class="col {{ style }} input-field outlined m-half">
+        {{ field }}
+        {{ field.label }}
+    </div>
+{% endmacro %}
+
+{% macro submit_field(field, style="s12") %}
+    <div class="col {{ style }} m-half">
+        {{ field }}
+    </div>
+{% endmacro %}

@@ -10,3 +10,21 @@
     </div>
 
 {% endmacro %}
+
+{% macro delete_modal(modal_id, obj) %}
+    <div id="{{ modal_id }}Modal" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">Confirm Delete</h4>
+            <p class="center-align flow-text">Are you sure you want to delete {{ obj.name if obj.name else obj.id}}
+                <br>This process can <b><u>NOT</u></b> be undone.</p>
+            <hr>
+            <form hx-delete="" class="row">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="id" value="{{ obj.id }}">
+                <div class="col s12 m-half">
+                    <button type="submit" class="btn-full red">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endmacro %}
