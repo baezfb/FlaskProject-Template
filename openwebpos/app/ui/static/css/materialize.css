@@ -104,7 +104,7 @@
   --md-ref-palette-error99: #fffbff;
   --md-ref-palette-error100: #ffffff;
   /* light */
-  --md-sys-color-primary-light: #006495;
+  --md-sys-color-primary-light: #536dfe; /* #006495 */
   --md-sys-color-on-primary-light: #ffffff;
   --md-sys-color-primary-container-light: #cbe6ff;
   --md-sys-color-on-primary-container-light: #001e30;
@@ -3282,11 +3282,11 @@ a {
 }
 
 /* 2dp elevation modified*/
-.z-depth-1, .sidenav, .collapsible, .dropdown-content, .btn-floating, .btn.elevated, .elevated.btn-small, .elevated.btn-large, .toast, .card, .card-panel, nav {
+.z-depth-1, .sidenav, .collapsible, .dropdown-content, .btn-floating, .btn.elevated, .elevated.btn-full, .elevated.btn-small, .elevated.btn-large, .toast, .card, .card-panel, nav {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.z-depth-1-half, .btn-floating:focus, .btn-floating:hover, .btn:focus, .btn-small:focus, .btn-large:focus, .btn:hover, .btn-small:hover, .btn-large:hover {
+.z-depth-1-half, .btn-floating:focus, .btn-floating:hover, .btn:focus, .btn-full:focus, .btn-small:focus, .btn-large:focus, .btn:hover, .btn-full:hover, .btn-small:hover, .btn-large:hover {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -4707,7 +4707,7 @@ table span.badge {
 
 nav {
   color: var(--font-on-primary-color-main);
-  background-color: var(--secondary-container-color);
+  background-color: var(--primary-color);
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4822,13 +4822,13 @@ nav ul:not(.dropdown-content) > li > a.active {
 nav ul:not(.dropdown-content) > li > a:hover:not(.active) {
   background-color: var(--primary-color-raised-hover-solid);
 }
-nav ul:not(.dropdown-content) > li > a.btn, nav ul:not(.dropdown-content) > li > a.btn-small, nav ul:not(.dropdown-content) > li > a.btn-large, nav ul:not(.dropdown-content) > li > a.btn-flat, nav ul:not(.dropdown-content) > li > a.btn-floating {
+nav ul:not(.dropdown-content) > li > a.btn, nav ul:not(.dropdown-content) > li > a.btn-full, nav ul:not(.dropdown-content) > li > a.btn-small, nav ul:not(.dropdown-content) > li > a.btn-large, nav ul:not(.dropdown-content) > li > a.btn-flat, nav ul:not(.dropdown-content) > li > a.btn-floating {
   margin-top: -2px;
   margin-left: 15px;
   margin-right: 15px;
   display: inline-block;
 }
-nav ul:not(.dropdown-content) > li > a.btn > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-small > .material-icons, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-large > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-sharp {
+nav ul:not(.dropdown-content) > li > a.btn > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-full > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-small > .material-icons, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-full > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-full > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-full > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-small > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-large > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-large > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-flat > .material-symbols-sharp, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-icons, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-outlined, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-rounded, nav ul:not(.dropdown-content) > li > a.btn-floating > .material-symbols-sharp {
   height: inherit;
   line-height: inherit;
 }
@@ -5233,11 +5233,11 @@ small {
   padding: 16px 24px;
   display: inline-block;
 }
-.card .card-action a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+.card .card-action a:not(.btn):not(.btn-full):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: var(--primary-color);
   transition: color 0.3s ease;
 }
-.card .card-action a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+.card .card-action a:not(.btn):not(.btn-full):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
   background-color: var(--primary-color-hover-opaque);
 }
 .card .card-reveal {
@@ -5456,7 +5456,7 @@ small {
   visibility: hidden;
 }
 
-.btn, .btn-small, .btn-large, .btn-floating, .btn-flat {
+.btn, .btn-full, .btn-small, .btn-large, .btn-floating, .btn-flat {
   --font-size-icon: 16px;
   --padding: 24px;
   --padding-icon: 16px;
@@ -5472,6 +5472,7 @@ small {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   white-space: nowrap;
@@ -5480,42 +5481,44 @@ small {
   transition: background-color 0.2s ease-out;
 }
 
-.btn.icon-left, .icon-left.btn-small, .icon-left.btn-large, .btn.icon-right, .icon-right.btn-small, .icon-right.btn-large {
+.btn.icon-left, .icon-left.btn-full, .icon-left.btn-small, .icon-left.btn-large, .btn.icon-right, .icon-right.btn-full, .icon-right.btn-small, .icon-right.btn-large {
   position: relative;
 }
 
-.btn.icon-left, .icon-left.btn-small, .icon-left.btn-large {
+.btn.icon-left, .icon-left.btn-full, .icon-left.btn-small, .icon-left.btn-large {
   padding-left: calc(var(--padding-icon) + var(--font-size-icon) + var(--gap-icon));
 }
 
-.btn.icon-right, .icon-right.btn-small, .icon-right.btn-large {
+.btn.icon-right, .icon-right.btn-full, .icon-right.btn-small, .icon-right.btn-large {
   padding-right: calc(var(--padding-icon) + var(--font-size-icon) + var(--gap-icon));
 }
 
-.btn.icon-left i, .icon-left.btn-small i, .icon-left.btn-large i, .btn.icon-right i, .icon-right.btn-small i, .icon-right.btn-large i {
+.btn.icon-left i, .icon-left.btn-full i, .icon-left.btn-small i, .icon-left.btn-large i, .btn.icon-right i, .icon-right.btn-full i, .icon-right.btn-small i, .icon-right.btn-large i {
   position: absolute;
   font-size: var(--font-size-icon);
 }
 
-.btn.icon-left i, .icon-left.btn-small i, .icon-left.btn-large i {
+.btn.icon-left i, .icon-left.btn-full i, .icon-left.btn-small i, .icon-left.btn-large i {
   left: var(--padding-icon);
 }
 
-.btn.icon-right i, .icon-right.btn-small i, .icon-right.btn-large i {
+.btn.icon-right i, .icon-right.btn-full i, .icon-right.btn-small i, .icon-right.btn-large i {
   right: var(--padding-icon);
 }
 
-.btn.disabled,
+.btn.disabled, .disabled.btn-full,
 .btn-floating.disabled,
 .btn-large.disabled,
 .btn-small.disabled,
 .btn-flat.disabled,
 .btn:disabled,
+.btn-full:disabled,
 .btn-floating:disabled,
 .btn-large:disabled,
 .btn-small:disabled,
 .btn-flat:disabled,
 .btn[disabled],
+[disabled].btn-full,
 .btn-floating[disabled],
 .btn-large[disabled],
 .btn-small[disabled],
@@ -5526,17 +5529,19 @@ small {
   color: var(--font-color-disabled) !important;
   cursor: default;
 }
-.btn.disabled:hover,
+.btn.disabled:hover, .disabled.btn-full:hover,
 .btn-floating.disabled:hover,
 .btn-large.disabled:hover,
 .btn-small.disabled:hover,
 .btn-flat.disabled:hover,
 .btn:disabled:hover,
+.btn-full:disabled:hover,
 .btn-floating:disabled:hover,
 .btn-large:disabled:hover,
 .btn-small:disabled:hover,
 .btn-flat:disabled:hover,
 .btn[disabled]:hover,
+[disabled].btn-full:hover,
 .btn-floating[disabled]:hover,
 .btn-large[disabled]:hover,
 .btn-small[disabled]:hover,
@@ -5545,45 +5550,45 @@ small {
   color: var(--font-color-disabled) !important;
 }
 
-.btn.filled, .btn, .btn-small, .btn-large {
+.btn.filled, .btn, .btn-full, .btn-small, .btn-large {
   background-color: var(--md-sys-color-primary);
 }
 
-.btn.tonal, .tonal.btn-small, .tonal.btn-large, .btn.elevated, .elevated.btn-small, .elevated.btn-large {
+.btn.tonal, .tonal.btn-full, .tonal.btn-small, .tonal.btn-large, .btn.elevated, .elevated.btn-full, .elevated.btn-small, .elevated.btn-large {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
 }
 
-.btn.text, .text.btn-small, .text.btn-large, .btn-flat {
+.btn.text, .text.btn-full, .text.btn-small, .text.btn-large, .btn-flat {
   box-shadow: none;
   background-color: transparent;
   color: var(--md-sys-color-primary);
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.btn.text:focus, .text.btn-small:focus, .text.btn-large:focus, .btn.text:hover, .text.btn-small:hover, .text.btn-large:hover, .btn-flat:focus, .btn-flat:hover {
+.btn.text:focus, .text.btn-full:focus, .text.btn-small:focus, .text.btn-large:focus, .btn.text:hover, .text.btn-full:hover, .text.btn-small:hover, .text.btn-large:hover, .btn-flat:focus, .btn-flat:hover {
   box-shadow: none;
   background-color: var(--hover-color);
 }
-.btn.text:focus, .text.btn-small:focus, .text.btn-large:focus, .btn-flat:focus {
+.btn.text:focus, .text.btn-full:focus, .text.btn-small:focus, .text.btn-large:focus, .btn-flat:focus {
   background-color: var(--focus-color);
 }
-.btn.text.disabled, .text.disabled.btn-small, .text.disabled.btn-large, .btn.text.btn.text[disabled], .text.text[disabled].btn-small, .text.text[disabled].btn-large, .btn.text.btn-flat[disabled], .btn-flat.disabled, .btn-flat.btn.text[disabled], .btn-flat.btn-flat[disabled] {
+.btn.text.disabled, .text.disabled.btn-full, .text.disabled.btn-small, .text.disabled.btn-large, .btn.text.btn.text[disabled], .text.text[disabled].btn-full, .text.text[disabled].btn-small, .text.text[disabled].btn-large, .btn.text.btn-flat[disabled], .btn-flat.disabled, .btn-flat.btn.text[disabled], .btn-flat.btn-flat[disabled] {
   background-color: transparent !important;
   color: var(--font-color-disabled) !important;
   cursor: default;
 }
 
-.btn.outlined, .outlined.btn-small, .outlined.btn-large {
+.btn.outlined, .outlined.btn-full, .outlined.btn-small, .outlined.btn-large {
   background-color: transparent;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 
-.btn:hover, .btn-small:hover, .btn-large:hover {
+.btn:hover, .btn-full:hover, .btn-small:hover, .btn-large:hover {
   background-color: var(--primary-color-raised-hover-solid);
 }
-.btn:focus, .btn-small:focus, .btn-large:focus {
+.btn:focus, .btn-full:focus, .btn-small:focus, .btn-large:focus {
   background-color: var(--primary-color-raised-focus-solid);
 }
 
@@ -5787,8 +5792,12 @@ button.btn-floating {
   display: block;
 }
 
-.btn.rounded, .rounded.btn-large, .rounded.btn-small {
+.btn.rounded, .rounded.btn-full, .rounded.btn-large, .rounded.btn-small {
   border-radius: 99999px;
+}
+
+.btn-full {
+  width: 100%;
 }
 
 .dropdown-content {
@@ -5903,7 +5912,7 @@ body.keyboard-focused .dropdown-content li:focus {
   width: 100%;
   text-align: right;
 }
-.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-full, .modal .modal-footer .btn-flat {
   margin: 6px 0;
 }
 
@@ -5943,7 +5952,7 @@ body.keyboard-focused .dropdown-content li:focus {
   bottom: -100%;
   margin: 0;
   width: 100%;
-  max-height: 45%;
+  max-height: 100%;
   border-radius: 0;
   will-change: bottom, opacity;
 }
@@ -6991,7 +7000,7 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 .file-field input.file-path {
   width: 100%;
 }
-.file-field .btn, .file-field .btn-large, .file-field .btn-small {
+.file-field .btn, .file-field .btn-large, .file-field .btn-small, .file-field .btn-full {
   height: 3rem;
   line-height: 3rem;
 }
@@ -7224,7 +7233,7 @@ input[type=range]::-ms-thumb {
 .sidenav a:focus {
   background-color: var(--focus-color);
 }
-.sidenav li.active > a:not(.collapsible-header):not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-small):not(.btn-flat):not(.btn-large):not(.btn-floating) {
+.sidenav li.active > a:not(.collapsible-header):not(.btn):not(.btn-large):not(.btn-small):not(.btn-full):not(.btn-large):not(.btn-small):not(.btn-flat):not(.btn-large):not(.btn-floating) {
   color: var(--font-on-secondary-container-color);
   background-color: var(--secondary-container-color);
 }
@@ -7255,10 +7264,10 @@ input[type=range]::-ms-thumb {
   border-radius: 100px;
   /* TODO: Use special class in future like "mw-icon" */
 }
-.sidenav li > a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-flat):not(.btn-large):not(.btn-floating) {
+.sidenav li > a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-full):not(.btn-flat):not(.btn-large):not(.btn-floating) {
   color: var(--font-color-main);
 }
-.sidenav li > a.btn, .sidenav li > a.btn-small, .sidenav li > a.btn-large, .sidenav li > a.btn-flat, .sidenav li > a.btn-floating {
+.sidenav li > a.btn, .sidenav li > a.btn-small, .sidenav li > a.btn-full, .sidenav li > a.btn-large, .sidenav li > a.btn-flat, .sidenav li > a.btn-floating {
   margin: 10px 15px;
 }
 .sidenav li > a > .material-icons, .sidenav li > a > .material-symbols-outlined, .sidenav li > a > .material-symbols-rounded, .sidenav li > a > .material-symbols-sharp {
@@ -8172,7 +8181,7 @@ input[type=range]::-ms-thumb {
   z-index: 10002;
   position: absolute !important;
 }
-.tap-target-origin:not(.btn):not(.btn-large):not(.btn-small), .tap-target-origin:not(.btn):not(.btn-large):not(.btn-small):hover {
+.tap-target-origin:not(.btn):not(.btn-large):not(.btn-small):not(.btn-full), .tap-target-origin:not(.btn):not(.btn-large):not(.btn-small):not(.btn-full):hover {
   background: none;
 }
 
