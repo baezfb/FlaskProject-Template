@@ -1,0 +1,24 @@
+.full-screen {
+  flex: 1 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-col {
+  @extend .flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.m-half {
+  margin: 0.5rem !important;
+}
+
+.my-half {
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}

@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  max-height: 100svh;
+  -ms-overflow-style: none;
+  overflow: -mz-scrollbars-none;
+  scrollbar-width: none;
+}
+
+main {
+  flex: 1 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+
+  section:only-child {
+    flex: 1 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}
