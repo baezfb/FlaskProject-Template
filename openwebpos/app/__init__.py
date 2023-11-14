@@ -1,25 +1,25 @@
 import os
 
-from flask import Flask
+from flask import Flask, current_app
 
 from openwebpos.app import config
 
 
-def create_app(config_filename=None):
+def create_app(config_filename=None, config_path=None):
     app = Flask(
         __name__,
         template_folder="ui/templates",
         static_folder="ui/static",
         instance_relative_config=True,
+        instance_path=config_path,
     )
 
+    # Default configuration settings
     app.config.from_object(config)
-    if config_filename is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile("config.py", silent=True)
-    else:
-        # load the config file if passed in
-        app.config.from_mapping(config_filename)
+
+    # User configuration settings
+    if config_filename:
+        app.config.from_pyfile(config_filename, silent=True)
 
     # ensure the instance folder exists
     try:
@@ -31,7 +31,8 @@ def create_app(config_filename=None):
 
     @app.route("/")
     def index():
-        return "Hello, World!"
+        test = current_app.config["TEST"]
+        return f"Hello, World! {test}"
 
     return app
 
@@ -42,17 +43,20 @@ def load_extensions(app):
     csrf.init_app(app)
 
     # Initialize extensions if the database is configured
-    if app.config["DB_CONFIGURED"]:
-        db.init_app(app)
+    db.init_app(app)
 
-        # Create all tables
-        with app.app_context():
-            db.create_all()
+    # Create all tables
+    with app.app_context():
+        db.create_all()
 
-            login_manager.init_app(app)
-            login_manager.login_view = "auth.login"
+        login_manager.init_app(app)
+        login_manager.login_view = "user.login"
 
-            def get_user_by_id(user_id):
-                from openwebpos.blueprints.user.models.UserModel import User
+        def get_user_by_id(user_id):
+            from openwebpos.blueprints.user.models.UserModel import User
 
-                return User.query.get(user_id)
+            return User.query.get(user_id)
+
+        @login_manager.user_loader
+        def load_user(user_id):
+            return get_user_by_id(user_id)
