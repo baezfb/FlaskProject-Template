@@ -1,0 +1,1 @@
+body,main{display:flex;flex-direction:column}body{min-height:100svh;max-height:100svh;-ms-overflow-style:none;overflow:-mz-scrollbars-none;scrollbar-width:none}main{flex:1 0 auto;overflow-x:hidden;overflow-y:scroll}main section:only-child{flex:1 0 auto;overflow-x:hidden;overflow-y:hidden;display:flex;flex-direction:column}
