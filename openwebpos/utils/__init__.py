@@ -74,7 +74,7 @@ def gen_uuid() -> str:
     Returns:
         str: The generated UUID.
     """
-    namespace = uuid.uuid5(uuid.NAMESPACE_DNS, getenv("UUID_NAMESPACE"))
+    namespace = uuid.uuid5(uuid.NAMESPACE_DNS, current_app.config["UUID_NAMESPACE"])
     uuid_value = str(uuid.uuid5(namespace, uuid.uuid4().hex))
     return uuid_value
 
