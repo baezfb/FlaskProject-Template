@@ -52,8 +52,6 @@ def addblueprint():
     os.makedirs(
         os.path.join(blueprint_path, blueprint_name, "templates/" + blueprint_name)
     )
-    with open("openwebpos/blueprints/__init__.py", "a") as f:
-        f.write(f"from .{blueprint_name} import {blueprint_name}_bp\n")
 
 
 @openwebpos.command()
