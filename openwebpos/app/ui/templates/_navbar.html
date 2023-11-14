@@ -1,0 +1,18 @@
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            {% if nav_title %}
+                <a class="brand-logo center">
+                    {% if nav_title is number %}
+                        {{ nav_title|currency }}
+                    {% else %}
+                        {{ nav_title|truncate(12, True, '...', 0) }}
+                    {% endif %}
+                </a>
+            {% endif %}
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="">Sass</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

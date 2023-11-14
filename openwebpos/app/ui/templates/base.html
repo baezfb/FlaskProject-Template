@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta Info -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+    <!-- PWA Settings -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" crossorigin="use-credentials">
+
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/override.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}">
+    <title>
+        {{ title + ' | OW-POS' if title else "OpenWebPOS" }}
+    </title>
+
+    <!-- HTMX Library -->
+    <script src="https://unpkg.com/htmx.org@1.9.6"
+            integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    {% include '_navbar.html' %}
+</header>
+
+<!-- Main Content -->
+<main>
+    {% block main %}
+    {% endblock %}
+</main>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/sw.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Service Worker -->
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function (registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function (error) {
+                console.log('Service Worker registration failed:', error);
+            });
+    }
+</script>
+</body>
+</html>
