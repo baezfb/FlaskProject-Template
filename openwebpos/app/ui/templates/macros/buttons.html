@@ -9,3 +9,17 @@
 {% macro modal_btn(target, text, style="btn") %}
     <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">{{ text }}</button>
 {% endmacro %}
+
+{% macro fixed_btn(target, icon="add", modal=True, pulse=False) %}
+    <div class="fixed-action-btn">
+        {% if modal %}
+            <a href="#{{ target }}Modal" class="btn-floating btn-large modal-trigger {{ "pulse" if pulse }}">
+                <i class="large material-icons">{{ icon }}</i>
+            </a>
+        {% else %}
+            <a href="{{ target }}" class="btn-floating btn-large {{ "pulse" if pulse }}">
+                <i class="large material-icons">{{ icon }}</i>
+            </a>
+        {% endif %}
+    </div>
+{% endmacro %}
