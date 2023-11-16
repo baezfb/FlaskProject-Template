@@ -18,6 +18,4 @@ IngredientCategoryListView.register(
 IngredientCategoryDetailView.register(
     product_bp, "ingredient-category/<id>", "ingredient_category"
 )
-ProductIngredientDetailView.register(
-    product_bp, "product/<id>/ingredient", "ingredients"
-)
+ProductIngredientDetailView.register(product_bp, "<id>/ingredient", "ingredients")
