@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from "macros/buttons.html" import fixed_btn %}
+{% from "macros/buttons.html" import fixed_btn, modal_btn, btn %}
 {% from "macros/modals.html" import modal %}
 {% from "macros/form_fields.html" import string_field, switch_field, submit_field %}
 {% from "macros/tables.html" import table_header, td_data %}
@@ -18,6 +18,20 @@
                     <tr {{ tr_style(product) }}>
                         {{ td_data([product.name|title, product.price|currency]) }}
                         <td class="right-align">
+                            {{ btn('') }}
+                            {{ modal_btn("Edit"+product.id, icon="edit") }}
+                            {% call modal("Edit"+product.id, "Edit "+product.name|title) %}
+                                <form hx-put="" class="row">
+                                    {{ form.csrf_token }}
+                                    <input type="hidden" name="id" value="{{ product.id }}">
+                                    {{ string_field(form.name, product.name|title) }}
+                                    {{ string_field(form.short_name, product.short_name|title) }}
+                                    {{ string_field(form.description, product.description) }}
+                                    {{ string_field(form.price, product.price|currency) }}
+                                    {{ switch_field(form.active, product.active, "Active") }}
+                                    {{ submit_field(form.submit) }}
+                                </form>
+                            {% endcall %}
                             {{ delete_button_ui(product) }}
                         </td>
                     </tr>
