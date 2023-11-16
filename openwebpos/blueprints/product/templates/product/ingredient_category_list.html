@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% from "macros/buttons.html" import fixed_btn, modal_btn, btn %}
+{% from "macros/modals.html" import modal %}
+{% from "macros/form_fields.html" import string_field, switch_field, submit_field %}
+{% from "macros/tables.html" import table_header, td_data %}
+{% from "macros/ui.html" import tr_style, delete_button_ui %}
+
+{% block main %}
+
+    <section>
+
+        {% if object_list %}
+            <table>
+                {{ table_header(["Name", "Actions"]) }}
+                <tbody>
+                {% for object in object_list %}
+                    <tr {{ tr_style(object) }}>
+                        {{ td_data([object.name|title]) }}
+                        <td class="right-align">
+                            {{ btn('') }}
+                            {{ modal_btn("Edit"+object.id, "edit") }}
+                            {% call modal("Edit"+object.id, "Edit "+object.name|title) %}
+                                <form hx-put="" class="row">
+                                    {{ form.csrf_token() }}
+                                    <input type="hidden" name="id" value="{{ object.id }}">
+                                    {{ string_field(form.name, object.name|title) }}
+                                    {{ switch_field(form.active, object.active) }}
+                                    {{ submit_field(form.submit) }}
+                                </form>
+                            {% endcall %}
+                            {{ delete_button_ui(object) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        {% else %}
+            <h1 class="center-align">No Ingredient Categories found.</h1>
+        {% endif %}
+
+    </section>
+
+    {{ fixed_btn(pulse=True if object_list|count == 0) }}
+    {% call modal(title="Add Ingredient Category") %}
+        <form action="" method="POST" class="row">
+            {{ form.csrf_token() }}
+            {{ string_field(form.name) }}
+            {{ submit_field(form.submit) }}
+        </form>
+    {% endcall %}
+
+{% endblock %}
