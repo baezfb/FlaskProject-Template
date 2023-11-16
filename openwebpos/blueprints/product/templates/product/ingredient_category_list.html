@@ -18,7 +18,7 @@
                     <tr {{ tr_style(object) }}>
                         {{ td_data([object.name|title]) }}
                         <td class="right-align">
-                            {{ btn('') }}
+                            {{ btn(url_for("product.ingredient_category", id=object.id)) }}
                             {{ modal_btn("Edit"+object.id, "edit") }}
                             {% call modal("Edit"+object.id, "Edit "+object.name|title) %}
                                 <form hx-put="" class="row">
