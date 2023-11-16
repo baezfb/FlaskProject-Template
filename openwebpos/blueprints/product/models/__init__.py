@@ -1,6 +1,6 @@
+from .IngredientCategoryModel import IngredientCategory
+from .IngredientModel import Ingredient
 from .ProductCategoryModel import ProductCategory
 from .ProductModel import Product
-from .IngredientCategoryModel import IngredientCategory
 
-
-__all__ = ["ProductCategory", "Product", "IngredientCategory"]
+__all__ = ["ProductCategory", "Product", "IngredientCategory", "Ingredient"]

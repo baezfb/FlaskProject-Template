@@ -1,13 +1,14 @@
 from openwebpos.app.extensions import db
-from openwebpos.utils.sqlalchemy import Model
+from openwebpos.utils.sqlalchemy import Model, foreign_key
 
 
-class IngredientCategory(Model):
+class Ingredient(Model):
+    # Foreign Keys
+    category_id = foreign_key("ingredient_category")
+
+    # Columns
     name = db.Column(db.String(24), nullable=False, unique=True)
     active = db.Column(db.Boolean, nullable=False, default=True)
-
-    # Relationships
-    ingredients = db.relationship("Ingredient", backref="category", lazy=True)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
