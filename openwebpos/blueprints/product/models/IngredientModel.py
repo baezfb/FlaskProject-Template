@@ -10,6 +10,11 @@ class Ingredient(Model):
     name = db.Column(db.String(24), nullable=False, unique=True)
     active = db.Column(db.Boolean, nullable=False, default=True)
 
+    # Relationship
+    products = db.relationship(
+        "Product", secondary="product_ingredient", back_populates="ingredients"
+    )
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = kwargs.get("name").lower()

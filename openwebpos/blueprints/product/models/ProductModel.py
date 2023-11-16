@@ -14,6 +14,11 @@ class Product(Model):
     price = db.Column(db.Integer, nullable=False, unique=False, default=0)
     active = db.Column(db.Boolean, nullable=False, default=True)
 
+    # Relationships
+    ingredients = db.relationship(
+        "Ingredient", secondary="product_ingredient", back_populates="products"
+    )
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = kwargs.get("name").lower()
