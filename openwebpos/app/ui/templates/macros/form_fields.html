@@ -14,3 +14,24 @@
         {{ field }}
     </div>
 {% endmacro %}
+
+
+{% macro switch_field(field, checked_value=False, label=None) %}
+    <div class="col s12 m-half">
+        <div class="switch">
+            {% if label %}
+                <span>{{ label }} &nbsp; &colon;</span>
+            {% endif %}
+            <label>
+                Off
+                {% if checked_value %}
+                    {{ field(checked=checked_value) }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+    </div>
+{% endmacro %}

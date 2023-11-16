@@ -9,6 +9,12 @@
     </a>
 {% endmacro %}
 
+{% macro list_btn(route, icon="list") %}
+    <a href="{{ route }}" class="btn-small grey darken-3">
+        <i class="material-icons">{{ icon }}</i>
+    </a>
+{% endmacro %}
+
 {# ***** Modal Button ***** #}
 {% macro modal_btn(target, icon, style="btn") %}
     <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">

@@ -9,3 +9,14 @@
     {{ delete_modal("Delete"+object.id, object) }}
 
 {% endmacro %}
+
+
+{% macro tr_style(object) %}
+
+    {% if object.active == False %}
+        class="{{ 'red lighten-4' if object.active == False }}"
+    {% endif %}
+
+{#    class="{{ 'red lighten-4' if object.active == False }}"#}
+
+{% endmacro %}
