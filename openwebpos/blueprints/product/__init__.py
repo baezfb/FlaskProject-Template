@@ -4,6 +4,7 @@ from .views.IngredientCategoryDetailView import IngredientCategoryDetailView
 from .views.IngredientCategoryListView import IngredientCategoryListView
 from .views.ProductCategoryDetailView import ProductCategoryDetailView
 from .views.ProductCategoryListView import ProductCategoryListView
+from .views.ProductIngredientDetailView import ProductIngredientDetailView
 
 product_bp = Blueprint(
     "product", __name__, template_folder="templates", url_prefix="/product/"
@@ -16,4 +17,7 @@ IngredientCategoryListView.register(
 )
 IngredientCategoryDetailView.register(
     product_bp, "ingredient-category/<id>", "ingredient_category"
+)
+ProductIngredientDetailView.register(
+    product_bp, "product/<id>/ingredient", "ingredients"
 )

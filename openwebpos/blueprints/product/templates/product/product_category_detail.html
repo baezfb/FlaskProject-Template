@@ -18,7 +18,17 @@
                     <tr {{ tr_style(product) }}>
                         {{ td_data([product.name|title, product.price|currency]) }}
                         <td class="right-align">
-                            {{ btn('') }}
+                            {{ modal_btn("Options"+product.id, icon="menu") }}
+                            {% call modal("Options"+product.id, title=product.name|title+" Options") %}
+                                <div class="row">
+                                    <div class="col s6 m-half">
+                                        {{ btn(url_for("product.ingredients", id=product.id), "Ingredients", style="btn-large btn-full") }}
+                                    </div>
+                                    <div class="col s6 m-half">
+                                        {{ btn('', "Variants", style="btn-large btn-full") }}
+                                    </div>
+                                </div>
+                            {% endcall %}
                             {{ modal_btn("Edit"+product.id, icon="edit") }}
                             {% call modal("Edit"+product.id, "Edit "+product.name|title) %}
                                 <form hx-put="" class="row">

@@ -4,8 +4,8 @@ from openwebpos.utils.sqlalchemy import Model, foreign_key
 
 class ProductIngredient(Model):
     # Foreign Key
-    product_id = foreign_key("product", primary_key=True)
-    ingredient_id = foreign_key("ingredient", primary_key=True)
+    product_id = foreign_key("product")
+    ingredient_id = foreign_key("ingredient")
 
     price = db.Column(db.Integer, default=0, nullable=False)
 
