@@ -35,3 +35,10 @@
         </div>
     </div>
 {% endmacro %}
+
+{% macro select_field(field, style="s12") %}
+    <div class="input-field outlined col {{ style }} m-half">
+        {{ field }}
+        {{ field.label }}
+    </div>
+{% endmacro %}
