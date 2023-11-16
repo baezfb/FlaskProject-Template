@@ -1,11 +1,11 @@
-{% macro string_field(field, label=None, style="s12") %}
+{% macro string_field(field, field_value=None, style="s12") %}
     <div class="col {{ style }} input-field outlined m-half">
-        {{ field }}
-        {% if label %}
-            <label for="{{ field.id }}">{{ label }}</label>
+        {% if field_value %}
+            {{ field(value=field_value) }}
         {% else %}
-            {{ field.label }}
+            {{ field }}
         {% endif %}
+        {{ field.label }}
     </div>
 {% endmacro %}
 
