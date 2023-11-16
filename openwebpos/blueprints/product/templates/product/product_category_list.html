@@ -1,55 +1,50 @@
 {% extends "base.html" %}
 
-{% from "macros/buttons.html" import fixed_btn, modal_btn, btn %}
+{% from "macros/buttons.html" import fixed_btn, modal_btn, btn, list_btn %}
 {% from "macros/modals.html" import modal %}
-{% from "macros/form_fields.html" import string_field, submit_field %}
+{% from "macros/form_fields.html" import string_field, switch_field, submit_field %}
 {% from "macros/tables.html" import table_header, td_data %}
-{% from "macros/ui.html" import delete_button_ui %}
+{% from "macros/ui.html" import delete_button_ui, tr_style %}
 
 {% block main %}
 
     <section>
         {% if object_list %}
             <table>
-                {{ table_header(("Name", "Short Name", "Actions")) }}
+                {{ table_header(["Name", "Actions"]) }}
                 <tbody>
                 {% for object in object_list %}
-                    <tr>
-                        {{ td_data((object.name|title, object.short_name|upper)) }}
+                    <tr {{ tr_style(object) }}>
+                        {{ td_data([object.name|title]) }}
                         <td class="right-align">
-
-                            {{ btn('', icon="list", color="grey darken-3") }}
-
-                            {{ modal_btn("EditProductType"+object.id, icon="update", style="btn-small") }}
-                            {% call modal("EditProductType"+object.id, "Edit "+object.name|title) %}
+                            {{ list_btn(url_for("product.category", id=object.id)) }}
+                            {{ modal_btn("Edit"+object.id, icon="edit", style="btn-small") }}
+                            {% call modal("Edit"+object.id, "Edit "+object.name|title) %}
                                 <form hx-put="" class="row">
                                     {{ form.csrf_token }}
                                     <input type="hidden" name="id" value="{{ object.id }}">
                                     {{ string_field(form.name, object.name|title) }}
-                                    {{ string_field(form.short_name, object.short_name|upper) }}
+                                    {{ switch_field(form.active, object.active, "Active") }}
                                     {{ submit_field(form.submit) }}
                                 </form>
                             {% endcall %}
-
                             {{ delete_button_ui(object) }}
-
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            <h2 class="center-align">No Product Types found in the database</h2>
+            <h1 class="center-align">No Categories found.</h1>
         {% endif %}
+
     </section>
 
-    {{ fixed_btn("AddProductType", pulse=True if object_list|count == 0) }}
-
-    {% call modal("AddProductType", "Add Product Type") %}
+    {{ fixed_btn(pulse=True if object_list|count == 0) }}
+    {% call modal(title="Add Category") %}
         <form action="" method="POST" class="row">
-            {{ form.csrf_token }}
+            {{ form.csrf_token() }}
             {{ string_field(form.name) }}
-            {{ string_field(form.short_name) }}
             {{ submit_field(form.submit) }}
         </form>
     {% endcall %}
