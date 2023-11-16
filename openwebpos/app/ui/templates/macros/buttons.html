@@ -1,22 +1,16 @@
 {# ***** Link-Button ***** #}
-{% macro btn(route, text, icon=None, style="btn-small", color=None) %}
+{% macro btn(route, text=None, icon="list", style="btn-small", color="grey darken-3") %}
     <a href="{{ route }}" class="{{ style }}{{ " "+color if color }}">
-        {% if icon %}
-            <i class="material-icons">{{ icon }}</i>
-        {% else %}
+        {% if text %}
             {{ text }}
+        {% else %}
+            <i class="material-icons">{{ icon }}</i>
         {% endif %}
     </a>
 {% endmacro %}
 
-{% macro list_btn(route, icon="list") %}
-    <a href="{{ route }}" class="btn-small grey darken-3">
-        <i class="material-icons">{{ icon }}</i>
-    </a>
-{% endmacro %}
-
 {# ***** Modal Button ***** #}
-{% macro modal_btn(target, icon, style="btn") %}
+{% macro modal_btn(target, icon, style="btn-small") %}
     <button data-target="{{ target }}Modal" class="{{ style }} modal-trigger">
         <i class="material-icons">{{ icon }}</i>
     </button>
