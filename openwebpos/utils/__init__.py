@@ -1,12 +1,28 @@
-import os
 import inspect
+import os
 import re
 import uuid
 from datetime import datetime
-from os import getenv
 
 import pytz
 from flask import render_template, current_app
+from slugify import slugify
+
+
+def slugify_string(string: str, length: int = 25) -> str:
+    """
+    Slugify a string.
+
+    Args:
+        string: The string to slugify.
+
+    Returns:
+        :param string:
+        :param length: The length of the slugified string
+    """
+    return slugify(
+        string, separator="_", max_length=length, word_boundary=True, save_order=True
+    )
 
 
 def write_config_to_file(config: dict, file_path: str = ".env"):
