@@ -3,6 +3,8 @@
         {{ field }}
         {% if label %}
             <label for="{{ field.id }}">{{ label }}</label>
+        {% else %}
+            {{ field.label }}
         {% endif %}
     </div>
 {% endmacro %}
