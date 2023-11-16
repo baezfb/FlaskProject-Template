@@ -4,6 +4,7 @@ from flask import Flask, current_app
 
 from openwebpos.app import config
 from openwebpos.blueprints import blueprints
+from openwebpos.utils.jinja2 import template_filters
 
 
 def create_app(config_filename=None, config_path=None):
@@ -28,6 +29,10 @@ def create_app(config_filename=None, config_path=None):
     except OSError:
         pass
 
+    # Register template filters
+    template_filters(app)
+
+    # Load extensions
     load_extensions(app)
 
     # Register blueprints
