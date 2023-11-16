@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from "macros/buttons.html" import fixed_btn, modal_btn, btn, list_btn %}
+{% from "macros/buttons.html" import fixed_btn, modal_btn, btn %}
 {% from "macros/modals.html" import modal %}
 {% from "macros/form_fields.html" import string_field, switch_field, submit_field %}
 {% from "macros/tables.html" import table_header, td_data %}
@@ -17,8 +17,8 @@
                     <tr {{ tr_style(object) }}>
                         {{ td_data([object.name|title]) }}
                         <td class="right-align">
-                            {{ list_btn(url_for("product.category", id=object.id)) }}
-                            {{ modal_btn("Edit"+object.id, icon="edit", style="btn-small") }}
+                            {{ btn(url_for("product.category", id=object.id)) }}
+                            {{ modal_btn("Edit"+object.id, icon="edit") }}
                             {% call modal("Edit"+object.id, "Edit "+object.name|title) %}
                                 <form hx-put="" class="row">
                                     {{ form.csrf_token }}
