@@ -1,0 +1,11 @@
+{% from "macros/buttons.html" import modal_btn %}
+{% from "macros/modals.html" import delete_modal %}
+
+
+
+{% macro delete_button_ui(object) %}
+
+    {{ modal_btn("Delete"+object.id, icon="delete", style="btn-small red") }}
+    {{ delete_modal("Delete"+object.id, object) }}
+
+{% endmacro %}

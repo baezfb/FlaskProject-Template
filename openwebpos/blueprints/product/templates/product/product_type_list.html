@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% from "macros/buttons.html" import fixed_btn, modal_btn %}
-{% from "macros/modals.html" import modal, delete_modal %}
+{% from "macros/buttons.html" import fixed_btn, modal_btn, btn %}
+{% from "macros/modals.html" import modal %}
 {% from "macros/form_fields.html" import string_field, submit_field %}
 {% from "macros/tables.html" import table_header, td_data %}
+{% from "macros/ui.html" import delete_button_ui %}
 
 {% block main %}
 
@@ -17,6 +18,8 @@
                         {{ td_data((object.name|title, object.short_name|upper)) }}
                         <td class="right-align">
 
+                            {{ btn('', icon="list", color="grey darken-3") }}
+
                             {{ modal_btn("EditProductType"+object.id, icon="update", style="btn-small") }}
                             {% call modal("EditProductType"+object.id, "Edit "+object.name|title) %}
                                 <form hx-put="" class="row">
@@ -28,8 +31,7 @@
                                 </form>
                             {% endcall %}
 
-                            {{ modal_btn("DeleteProductType"+object.id, icon="delete", style="btn-small red") }}
-                            {{ delete_modal("DeleteProductType"+object.id, object) }}
+                            {{ delete_button_ui(object) }}
 
                         </td>
                     </tr>
