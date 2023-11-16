@@ -1,6 +1,15 @@
+{% from "macros/buttons.html" import btn %}
+
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
+            <ul class="p0">
+                {% if back_url %}
+                    <li>
+                        {{ btn(back_url, icon="arrow_back", style="") }}
+                    </li>
+                {% endif %}
+            </ul>
             {% if nav_title %}
                 <a class="brand-logo center">
                     {% if nav_title is number %}
@@ -10,9 +19,6 @@
                     {% endif %}
                 </a>
             {% endif %}
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="">Sass</a></li>
-            </ul>
         </div>
     </nav>
 </div>
