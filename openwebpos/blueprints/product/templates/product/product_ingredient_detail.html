@@ -13,7 +13,7 @@
             <table>
                 {{ table_header(["Name","Amount", "Unit", "Actions"]) }}
                 <tbody>
-                {% for ingredient in object.ingredients %}
+                {% for ingredient in object.ingredients|sort(attribute="name") %}
                     <tr>
                         {{ td_data([ingredient.ingredient.name|title, ingredient.amount, ingredient.unit]) }}
                         <td class="right-align">
