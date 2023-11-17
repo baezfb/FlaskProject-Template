@@ -1,6 +1,6 @@
 from openwebpos.app.extensions import db
-from openwebpos.utils.sqlalchemy import Model, foreign_key
 from openwebpos.utils.money import convert_to_cents
+from openwebpos.utils.sqlalchemy import Model, foreign_key
 
 
 class Product(Model):
@@ -15,9 +15,7 @@ class Product(Model):
     active = db.Column(db.Boolean, nullable=False, default=True)
 
     # Relationships
-    ingredients = db.relationship(
-        "Ingredient", secondary="product_ingredient", back_populates="products"
-    )
+    ingredients = db.relationship("ProductIngredient", back_populates="product")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

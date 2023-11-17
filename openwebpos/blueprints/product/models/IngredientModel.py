@@ -11,9 +11,7 @@ class Ingredient(Model):
     active = db.Column(db.Boolean, nullable=False, default=True)
 
     # Relationship
-    products = db.relationship(
-        "Product", secondary="product_ingredient", back_populates="ingredients"
-    )
+    products = db.relationship("ProductIngredient")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
