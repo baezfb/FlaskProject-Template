@@ -1,8 +1,9 @@
 from .IngredientCategoryModel import IngredientCategory
 from .IngredientModel import Ingredient
 from .ProductCategoryModel import ProductCategory
-from .ProductModel import Product
 from .ProductIngredientModel import ProductIngredient
+from .ProductModel import Product
+from .ProductVariantModel import ProductVariant
 
 __all__ = [
     "ProductCategory",
@@ -10,4 +11,5 @@ __all__ = [
     "IngredientCategory",
     "Ingredient",
     "ProductIngredient",
+    "ProductVariant",
 ]

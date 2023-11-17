@@ -25,7 +25,7 @@
                                         {{ btn(url_for("product.ingredients", id=product.id), "Ingredients", style="btn-large btn-full") }}
                                     </div>
                                     <div class="col s6 m-half">
-                                        {{ btn('', "Variants", style="btn-large btn-full") }}
+                                        {{ btn(url_for("product.variants", id=product.id), "Variants", style="btn-large btn-full") }}
                                     </div>
                                 </div>
                             {% endcall %}

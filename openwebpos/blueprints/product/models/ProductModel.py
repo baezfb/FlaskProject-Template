@@ -16,6 +16,7 @@ class Product(Model):
 
     # Relationships
     ingredients = db.relationship("ProductIngredient", back_populates="product")
+    variants = db.relationship("ProductVariant", backref="product")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
