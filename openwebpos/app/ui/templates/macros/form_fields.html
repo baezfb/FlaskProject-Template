@@ -36,9 +36,13 @@
     </div>
 {% endmacro %}
 
-{% macro select_field(field, style="s12") %}
+{% macro select_field(field, field_value=None, style="s12") %}
     <div class="input-field outlined col {{ style }} m-half">
-        {{ field }}
+        {% if field_value %}
+            {{ field(value=field_value) }}
+        {% else %}
+            {{ field }}
+        {% endif %}
         {{ field.label }}
     </div>
 {% endmacro %}
