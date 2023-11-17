@@ -9,7 +9,24 @@
 {% block main %}
 
     <section>
+        {% if object.ingredients %}
+            <table>
+                {{ table_header(["Name","Amount", "Unit", "Actions"]) }}
+                <tbody>
+                {% for ingredient in object.ingredients %}
+                    <tr>
+                        {{ td_data([ingredient.ingredient.name|title, ingredient.amount, ingredient.unit]) }}
+                        <td class="right-align">
+                            {{ delete_button_ui(ingredient) }}
+                        </td>
+                    </tr>
+                {% endfor %}
 
+                </tbody>
+            </table>
+        {% else %}
+            <h1 class="center-align">No ingredients</h1>
+        {% endif %}
     </section>
 
     {{ fixed_btn(pulse=True if object.ingredients|count == 0) }}
@@ -18,6 +35,9 @@
         <form action="" method="POST" class="row">
             {{ form.csrf_token() }}
             {{ select_field(form.ingredient_id) }}
+            {{ string_field(form.amount) }}
+            {{ select_field(form.unit) }}
+            {{ submit_field(form.submit) }}
         </form>
     {% endcall %}
 

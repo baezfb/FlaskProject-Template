@@ -17,22 +17,26 @@ class ProductIngredientDetailView(DetailView):
 
     def get_context(self):
         return {
+            "form": self.form(product_id=self.object.id),
             "back_url": url_for("product.category", id=self.object.category_id),
+            "product_ingredients": self.product_ingredient_model.query.filter_by(
+                product_id=self.object.id
+            ).all(),
         }
 
-    def post(self):
+    def post(self, id):
         form = self.form()
         if form.validate_on_submit():
             self.product_ingredient_model.create(
                 product_id=self.object.id,
                 ingredient_id=form.ingredient_id.data,
-                price=form.price.data,
+                amount=form.amount.data,
+                unit=form.unit.data,
             )
-        return self.redirect(url_for("product.product_ingredients", id=self.object.id))
+        else:
+            print(form.errors)
+        return self.redirect(url_for("product.ingredients", id=id))
 
-    def put(self):
-        return htmx_refresh()
-
-    def delete(self):
+    def delete(self, id):
         self.product_ingredient_model.get_by_id(request.form.get("id")).delete()
         return htmx_refresh()
