@@ -24,7 +24,10 @@ class ProductIngredientForm(FlaskForm):
         active_not_associated = [
             i for i in active_ingredients if i.id not in associated_ingredients
         ]
-        self.ingredient_id.choices = [(c.id, c.name) for c in active_not_associated]
+        self.ingredient_id.choices = [
+            (c.id, c.category.name.title() + " " + c.name.title())
+            for c in active_not_associated
+        ]
         # self.ingredient_id.choices = [
         #     (i.id, i.name) for i in Ingredient.query.filter_by(active=True).all()
         # ]
