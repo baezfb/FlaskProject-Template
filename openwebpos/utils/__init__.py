@@ -9,6 +9,13 @@ from flask import render_template, current_app
 from slugify import slugify
 
 
+def remove_csrf_and_submit(form):
+    form_data = form.data.copy()
+    form_data.pop("csrf_token", None)  # Remove CSRF token
+    form_data.pop("submit", None)  # Remove submit field
+    return form_data
+
+
 def slugify_string(string: str, length: int = 25) -> str:
     """
     Slugify a string.
