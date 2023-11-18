@@ -183,7 +183,9 @@ def foreign_key(tablename, nullable=False, pk_name="id", **kwargs):
 
     """
     return db.Column(
-        db.ForeignKey(f"{tablename}.{pk_name}", **kwargs), nullable=nullable
+        db.String(255),
+        db.ForeignKey(f"{tablename}.{pk_name}", **kwargs),
+        nullable=nullable,
     )
 
 
