@@ -8,7 +8,6 @@ class DetailView(TemplateView):
 
     init_every_request = False
 
-    model = None
     url_variable = "var"  # Used to get the object from the URL
     query_field = None  # field to query. If none it will query the id field and use url_variable as the id
     context_object_name = "object"
