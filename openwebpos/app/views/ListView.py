@@ -8,7 +8,6 @@ class ListView(TemplateView):
 
     init_every_request = False
 
-    model = None
     context_object_list_name = "object_list"
 
     def get_context_object_list_name(self):
