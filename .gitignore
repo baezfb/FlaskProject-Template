@@ -23,6 +23,16 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+# Project-specific stuff
+.idea/inspectionProfiles/*
+.idea/.gitignore
+.idea/OpenWebPOS.iml
+.idea/dataSources.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/watcherTasks.xml
+
 # AWS User-specific
 .idea/**/aws.xml
 
