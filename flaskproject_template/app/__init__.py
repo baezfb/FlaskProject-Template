@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, current_app
 
-from openwebpos.app import config
-from openwebpos.blueprints import blueprints
-from openwebpos.utils.jinja2 import template_filters
+from flaskproject_template.app import config
+from flaskproject_template.blueprints import blueprints
+from flaskproject_template.utils.jinja2 import template_filters
 
 
 def create_app(config_filename=None, config_path=None):
@@ -48,7 +48,7 @@ def create_app(config_filename=None, config_path=None):
 
 
 def load_extensions(app):
-    from openwebpos.app.extensions import db, login_manager, csrf
+    from flaskproject_template.app.extensions import db, login_manager, csrf
 
     csrf.init_app(app)
 
@@ -63,7 +63,7 @@ def load_extensions(app):
         login_manager.login_view = "user.login"
 
         def get_user_by_id(user_id):
-            from openwebpos.blueprints.user.models.UserModel import User
+            from flaskproject_template.blueprints.user.models.UserModel import User
 
             return User.query.get(user_id)
 

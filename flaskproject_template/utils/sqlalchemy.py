@@ -2,8 +2,8 @@ from flask_login import current_user
 from sqlalchemy.exc import ProgrammingError
 from sqlalchemy.inspection import inspect
 
-from openwebpos.app.extensions import db
-from openwebpos.utils import timezone_datetime, gen_uuid
+from flaskproject_template.app.extensions import db
+from flaskproject_template.utils import timezone_datetime, gen_uuid
 
 
 class CRUDMixin:

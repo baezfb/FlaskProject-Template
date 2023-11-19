@@ -1,4 +1,4 @@
-from openwebpos.app import create_app
+from flaskproject_template.app import create_app
 
 application = create_app()
 

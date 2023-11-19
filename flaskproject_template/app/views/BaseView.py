@@ -1,7 +1,7 @@
 from flask import redirect
 from flask.views import MethodView
 
-from openwebpos.utils import convert_camel_to_snake
+from flaskproject_template.utils import convert_camel_to_snake
 
 
 class BaseView(MethodView):

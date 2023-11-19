@@ -3,16 +3,19 @@ import secrets
 
 from click_shell import shell
 
-blueprint_path = os.path.join("openwebpos", "blueprints")
+blueprint_path = os.path.join("flaskproject_template", "blueprints")
 print(blueprint_path)
 
 
-@shell(prompt="openwebpos-shell > ", intro="Starting openwebpos shell...")
-def openwebpos():
+@shell(
+    prompt="flaskproject_template-shell > ",
+    intro="Starting flaskproject_template shell...",
+)
+def flaskproject_template():
     pass
 
 
-@openwebpos.command()
+@flaskproject_template.command()
 def addblueprint():
     """Add a blueprint to the app"""
     blueprint_name = input("Enter the name of the blueprint: ")
@@ -54,11 +57,11 @@ def addblueprint():
     )
 
 
-@openwebpos.command()
+@flaskproject_template.command()
 def gensecret():
     """Generate a secret key"""
     print(secrets.token_hex())
 
 
 if __name__ == "__main__":
-    openwebpos()
+    flaskproject_template()

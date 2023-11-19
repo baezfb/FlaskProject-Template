@@ -1,8 +1,8 @@
 from flask_login import current_user
 
-from openwebpos.app.extensions import db
-from openwebpos.utils import timezone_datetime
-from openwebpos.utils.sqlalchemy import Model, foreign_key
+from flaskproject_template.app.extensions import db
+from flaskproject_template.utils import timezone_datetime
+from flaskproject_template.utils.sqlalchemy import Model, foreign_key
 
 
 class UserActivity(Model):

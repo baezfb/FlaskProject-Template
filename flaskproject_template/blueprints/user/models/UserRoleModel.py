@@ -1,5 +1,5 @@
-from openwebpos.app.extensions import db
-from openwebpos.utils.sqlalchemy import Model
+from flaskproject_template.app.extensions import db
+from flaskproject_template.utils.sqlalchemy import Model
 
 
 class UserRole(Model):

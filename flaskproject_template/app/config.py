@@ -13,10 +13,10 @@ SECRET_KEY = (
 TIMEZONE = "US/Central"
 APP_PATH = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 APP_DIR = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-UUID_NAMESPACE = "www.openwebpos.com"
+UUID_NAMESPACE = "www.flaskproject_template.com"
 
 # Database settings
-SQLALCHEMY_DATABASE_URI = f"sqlite:///{APP_DIR}/openwebpos.db"
+SQLALCHEMY_DATABASE_URI = f"sqlite:///{APP_DIR}/flaskproject_template.db"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_ECHO = False
 

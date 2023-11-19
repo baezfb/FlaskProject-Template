@@ -1,8 +1,8 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from openwebpos.app.extensions import db
-from openwebpos.utils.sqlalchemy import Model, foreign_key
+from flaskproject_template.app.extensions import db
+from flaskproject_template.utils.sqlalchemy import Model, foreign_key
 from .UserRoleModel import UserRole
 
 
