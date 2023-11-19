@@ -17,6 +17,7 @@
         <option value="$MODULE_DIR$/openwebpos/app/ui/templates" />
         <option value="$MODULE_DIR$/openwebpos/blueprints/user/templates" />
         <option value="$MODULE_DIR$/openwebpos/blueprints/product/templates" />
+        <option value="$MODULE_DIR$/openwebpos/blueprints/ingredient/templates" />
       </list>
     </option>
   </component>
