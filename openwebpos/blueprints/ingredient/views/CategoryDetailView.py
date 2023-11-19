@@ -12,7 +12,7 @@ class CategoryDetailView(DetailView):
     back_url = "ingredient.categories"
 
     def get_context(self):
-        ing_cat = IngredientCategory.get_by("slug", self.kwargs[self.url_variable])
+        ing_cat = self.query_model.get_by("slug", self.kwargs[self.url_variable])
         return {
             "title": ing_cat.name.title() + " Details",
             "nav_title": ing_cat.name.title(),
