@@ -1,12 +1,12 @@
 from flask import Blueprint
 
-from .views.IngredientCategoryListView import IngredientCategoryListView
-from .views.IngredientCategoryDetailView import IngredientCategoryDetailView
+from .views.CategoryListView import CategoryListView
+from .views.CategoryDetailView import CategoryDetailView
 
 ingredient_bp = Blueprint(
     "ingredient", __name__, template_folder="templates", url_prefix="/ingredient/"
 )
 
 
-IngredientCategoryListView.register(ingredient_bp, "categories", "categories")
-IngredientCategoryDetailView.register(ingredient_bp, "category/<var>", "category")
+CategoryListView.register(ingredient_bp, "categories", "categories")
+CategoryDetailView.register(ingredient_bp, "category/<var>", "category")

@@ -3,7 +3,7 @@ from ..forms.CategoryTypeForm import CategoryTypeForm
 from ..models import IngredientCategoryType, IngredientCategory
 
 
-class IngredientCategoryDetailView(DetailView):
+class CategoryDetailView(DetailView):
     template_name = "ingredient/category_detail.html"
     model = IngredientCategoryType
     query_model = IngredientCategory

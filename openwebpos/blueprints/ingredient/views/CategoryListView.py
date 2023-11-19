@@ -3,7 +3,7 @@ from ..forms.CategoryForm import CategoryForm
 from ..models import IngredientCategory
 
 
-class IngredientCategoryListView(ListView):
+class CategoryListView(ListView):
     template_name = "ingredient/category_list.html"
     title = "Ingredient Categories"
     nav_title = "Categories"
