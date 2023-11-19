@@ -2,6 +2,7 @@ from flask import render_template, url_for, request
 
 from .BaseView import BaseView
 from ...utils import remove_csrf_and_submit
+from ...utils.htmx import htmx_refresh
 
 
 class TemplateView(BaseView):
@@ -50,6 +51,14 @@ class TemplateView(BaseView):
             else:
                 raise NotImplementedError("model must be defined")
         else:
+            # TODO: Add error handling here to display errors on page instead of console log and log to file
             print("form not validated")
             print(self.form().errors)
             return self.get()
+
+    def delete(self, *args, **kwargs):
+        if self.model:
+            self.model.get_by_id(request.form.get("id")).delete()
+            return htmx_refresh()
+        else:
+            raise NotImplementedError("model must be defined")
