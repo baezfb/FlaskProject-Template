@@ -158,6 +158,26 @@ class Model(CRUDMixin, TrackMixin, db.Model):
         return cls.query.get(cls_id)
 
     @classmethod
+    def get_by(cls, column, value):
+        """
+        Get an instance of the class by the provided column and value.
+        :param column:
+        :param value:
+        :return:
+        """
+        return cls.query.filter_by(**{column: value}).first()
+
+    @classmethod
+    def get_all_by(cls, column, value):
+        """
+        Get all instances of the class by the provided column and value.
+        :param column:
+        :param value:
+        :return:
+        """
+        return cls.query.filter_by(**{column: value}).all()
+
+    @classmethod
     def get_by_name(cls, name):
         """
         Gets an instance of the class by its name.
