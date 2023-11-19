@@ -1,6 +1,7 @@
-from flask import render_template, url_for
+from flask import render_template, url_for, request
 
 from .BaseView import BaseView
+from ...utils import remove_csrf_and_submit
 
 
 class TemplateView(BaseView):
@@ -12,6 +13,7 @@ class TemplateView(BaseView):
     alt_sidenav = False
     back_url_dynamic = False
     form = None
+    model = None
 
     def get_default_context(self):
         context = {
@@ -38,3 +40,16 @@ class TemplateView(BaseView):
             if context["back_url"] is not None:
                 context["back_url"] = context["back_url"]()
         return render_template(self.template_name, **context)
+
+    def post(self, *args, **kwargs):
+        if self.form().validate_on_submit():
+            cleaned_data = remove_csrf_and_submit(self.form())
+            if self.model:
+                self.model.create(**cleaned_data)
+                return self.redirect(url_for(request.endpoint, **request.view_args))
+            else:
+                raise NotImplementedError("model must be defined")
+        else:
+            print("form not validated")
+            print(self.form().errors)
+            return self.get()
