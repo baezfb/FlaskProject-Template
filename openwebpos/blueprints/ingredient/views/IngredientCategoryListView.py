@@ -1,7 +1,5 @@
-from flask import url_for, request
-
 from openwebpos.app.views import ListView
-from openwebpos.utils.htmx import htmx_refresh
+from ..forms.CategoryForm import CategoryForm
 from ..models import IngredientCategory
 
 
@@ -10,3 +8,4 @@ class IngredientCategoryListView(ListView):
     title = "Ingredient Categories"
     nav_title = "Categories"
     model = IngredientCategory
+    form = CategoryForm
