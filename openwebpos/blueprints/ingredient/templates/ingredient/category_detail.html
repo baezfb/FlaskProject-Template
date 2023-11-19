@@ -22,6 +22,7 @@
                             {% call modal("Edit"+cat_type.name|title, "Edit "+cat_type.name|title) %}
                                 <form hx-put="" class="row">
                                     {{ form.csrf_token() }}
+                                    {{ form.category_id(value=object.id) }}
                                     <input type="hidden" name="id" value="{{ cat_type.id }}">
                                     {{ string_field(form.name, cat_type.name|title) }}
                                     {{ switch_field(form.active, cat_type.active, label="Active") }}
@@ -43,6 +44,7 @@
     {% call modal(title="Add Category") %}
         <form action="" method="POST" class="row">
             {{ form.csrf_token() }}
+            {{ form.category_id(value=object.id) }}
             {{ string_field(form.name) }}
             {{ switch_field(form.active, True, label="Active") }}
             {{ submit_field(form.submit) }}
