@@ -7,8 +7,8 @@ class DetailView(TemplateView):
     """
 
     init_every_request = False
-
     url_variable = "var"  # Used to get the object from the URL
+    query_model = None  # Used for the display model in the template
     query_field = None  # field to query. If none it will query the id field and use url_variable as the id
     context_object_name = "object"
 
@@ -27,22 +27,16 @@ class DetailView(TemplateView):
             error = "%s must define `get_object()`"
             raise NotImplementedError(error % self.__class__.__name__)
 
-        if self.query_field:
-            return self.model.query.filter_by(
-                **{self.query_field: self.kwargs[self.url_variable]}
-            ).first_or_404()
-        else:
-            return self.model.query.get_or_404(self.kwargs[self.url_variable])
+        if self.query_model is None:
+            error = "%s must define `query_model`"
+            raise NotImplementedError(error % self.__class__.__name__)
 
-        # if self.request_variable == "id":
-        #     return self.model.query.get_or_404(self.kwargs[self.request_variable])
-        # elif self.request_variable == "slug":
-        #     return self.model.query.filter_by(
-        #         slug=self.kwargs[self.request_variable]
-        #     ).first_or_404()
-        # else:
-        #     raise NotImplementedError("request_variable must be either 'id' or 'slug'")
-        # return self.model.query.get_or_404(self.kwargs[self.request_variable])
+        if self.query_field:
+            return self.query_model.get_by(
+                self.query_field, self.kwargs[self.url_variable]
+            )
+        else:
+            return self.query_model.query.get_or_404(self.kwargs[self.url_variable])
 
     def get_default_context(self):
         """
