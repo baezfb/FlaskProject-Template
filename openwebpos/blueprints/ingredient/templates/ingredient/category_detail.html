@@ -18,6 +18,16 @@
                         {{ td_data([cat_type.name|title]) }}
                         <td class="right-align">
                             {{ btn() }}
+                            {{ modal_btn("Edit"+cat_type.name|title, "edit") }}
+                            {% call modal("Edit"+cat_type.name|title, "Edit "+cat_type.name|title) %}
+                                <form hx-put="" class="row">
+                                    {{ form.csrf_token() }}
+                                    <input type="hidden" name="id" value="{{ cat_type.id }}">
+                                    {{ string_field(form.name, cat_type.name|title) }}
+                                    {{ switch_field(form.active, cat_type.active, label="Active") }}
+                                    {{ submit_field(form.submit) }}
+                                </form>
+                            {% endcall %}
                             {{ delete_button_ui(cat_type) }}
                         </td>
                     </tr>
