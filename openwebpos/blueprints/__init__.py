@@ -1,4 +1,4 @@
 from .user import user_bp
-from .product import product_bp
+from .ingredient import ingredient_bp
 
-blueprints = [user_bp, product_bp]
+blueprints = [user_bp, ingredient_bp]

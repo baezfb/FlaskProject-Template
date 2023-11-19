@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+    <section>
+    {% if object.category_types %}
+    	{% else %}
+        <h1 class="center-align">No Category-Types found for {{ object.name|title }}</h1>
+    {% endif %}
+    </section>
+
+{% endblock %}
