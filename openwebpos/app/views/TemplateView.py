@@ -56,6 +56,14 @@ class TemplateView(BaseView):
             print(self.form().errors)
             return self.get()
 
+    def put(self, *args, **kwargs):
+        if self.model:
+            cleaned_data = remove_csrf_and_submit(self.form())
+            self.model.get_by_id(request.form.get("id")).update(**cleaned_data)
+            return htmx_refresh()
+        else:
+            raise NotImplementedError("model must be defined")
+
     def delete(self, *args, **kwargs):
         if self.model:
             self.model.get_by_id(request.form.get("id")).delete()
