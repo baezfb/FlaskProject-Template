@@ -22,7 +22,7 @@ class BaseView(MethodView):
         self.kwargs = kwargs
         result = self.dispatch()
         if result is None:
-            return super().dispatch_request(*args, **kwargs)
+            return super().dispatch_request(**kwargs)
         return result
 
     def dispatch(self) -> object:
