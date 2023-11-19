@@ -17,7 +17,7 @@
                     <tr {{ tr_style(object) }}>
                         {{ td_data([object.name|title]) }}
                         <td class="right-align">
-                            {{ btn(url_for("ingredient.category", var=object.slug),icon="list") }}
+                            {{ btn(url_for("ingredient.category", var=object.slug)) }}
                             {{ delete_button_ui(object) }}
                         </td>
                     </tr>
