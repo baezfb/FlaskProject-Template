@@ -165,7 +165,7 @@ class Model(CRUDMixin, TrackMixin, db.Model):
         :param value:
         :return:
         """
-        return cls.query.filter_by(**{column: value}).first()
+        return cls.query.filter_by(**{column: value}).first_or_404()
 
     @classmethod
     def get_all_by(cls, column, value):
