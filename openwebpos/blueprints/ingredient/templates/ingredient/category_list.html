@@ -18,6 +18,16 @@
                         {{ td_data([object.name|title]) }}
                         <td class="right-align">
                             {{ btn(url_for("ingredient.category", var=object.slug)) }}
+                            {{ modal_btn("Edit"+object.id, "edit") }}
+                            {% call modal("Edit"+object.id, "Edit "+object.name|title) %}
+                                <form hx-put class="row">
+                                    {{ form.csrf_token() }}
+                                    <input type="hidden" name="id" value="{{ object.id }}">
+                                    {{ string_field(form.name, object.name|title) }}
+                                    {{ switch_field(form.active, object.active, label="Active") }}
+                                    {{ submit_field(form.submit) }}
+                                </form>
+                            {% endcall %}
                             {{ delete_button_ui(object) }}
                         </td>
                     </tr>
@@ -29,5 +39,16 @@
             <h1 class="center-align">No Categories Found.</h1>
         {% endif %}
     </section>
+
+    {{ fixed_btn(pulse=True if object_list|count == 0) }}
+
+    {% call modal(title="Add Category") %}
+        <form action="" method="POST" class="row">
+            {{ form.csrf_token() }}
+            {{ string_field(form.name) }}
+            {{ switch_field(form.active, True, label="Active") }}
+            {{ submit_field(form.submit) }}
+        </form>
+    {% endcall %}
 
 {% endblock %}
