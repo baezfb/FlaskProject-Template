@@ -1,12 +1,19 @@
-from flask import url_for, request
-
 from openwebpos.app.views import DetailView
-from openwebpos.utils.htmx import htmx_refresh
-from ..models import IngredientCategory
+from ..forms.CategoryTypeForm import CategoryTypeForm
+from ..models import IngredientCategoryType, IngredientCategory
 
 
 class IngredientCategoryDetailView(DetailView):
     template_name = "ingredient/category_detail.html"
-    model = IngredientCategory
+    model = IngredientCategoryType
+    query_model = IngredientCategory
+    form = CategoryTypeForm
     query_field = "slug"
     back_url = "ingredient.categories"
+
+    def get_context(self):
+        ing_cat = IngredientCategory.get_by("slug", self.kwargs[self.url_variable])
+        return {
+            "title": ing_cat.name.title() + " Details",
+            "nav_title": ing_cat.name.title(),
+        }
