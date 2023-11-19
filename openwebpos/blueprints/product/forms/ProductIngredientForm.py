@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField
-from wtforms.validators import DataRequired, InputRequired
+from wtforms.validators import DataRequired
 
-from openwebpos.utils.wtforms import CustomStringField, CustomSubmitField, MoneyField
-from ..models import Ingredient, ProductIngredient
+from openwebpos.blueprints.ingredient.models import Ingredient
+from openwebpos.utils.wtforms import CustomStringField, CustomSubmitField
+from ..models import ProductIngredient
 
 
 class ProductIngredientForm(FlaskForm):
