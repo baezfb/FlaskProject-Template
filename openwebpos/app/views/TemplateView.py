@@ -15,6 +15,7 @@ class TemplateView(BaseView):
     back_url_dynamic = False
     form = None
     model = None
+    url_variable = "var"  # Used to get the object from the URL
 
     def get_default_context(self):
         context = {
